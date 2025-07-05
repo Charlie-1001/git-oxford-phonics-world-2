@@ -1,1 +1,1 @@
-This is the game for short-a, 'a'.
+The interactive games for Oxford Phonics World 1.

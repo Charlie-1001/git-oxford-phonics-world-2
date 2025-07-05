@@ -1,2 +1,1 @@
-# phonics-games
-Interactive phonic games
+This is the game for short-a, 'a'.

@@ -35,13 +35,14 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        height: 80svh;
       }
 
       .team {
         width: 49%;
         border: 3px solid black;
         border-radius: 1rem;
-        height: 80svh;
+        height: 100%;
       }
 
       .team-header {
@@ -50,17 +51,22 @@
         padding: 0.5rem;
         border-bottom: 2px solid white;
         border-radius: 1rem 1rem 0 0;
-        height: 12svh;
+        height: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
       .team-name {
         font-size: 2rem;
-        text-align: center;
         border: none;
         background-color: transparent;
         color: white;
         font-weight: bold;
         outline: none;
+        width: 100%;
+        text-align: center;
       }
 
       .score {
@@ -69,7 +75,7 @@
       }
 
       .check-panel {
-        height: 8svh;
+        height: 8%;
         background-color: rgb(240, 201, 27);
         display: flex;
         align-items: center;
@@ -78,12 +84,12 @@
       }
 
       .check-btn, .done-btn {
-        height: 100%;
+        height: 80%;
         cursor: pointer;
       }
 
       .dropzone {
-        height: 30svh;
+        height: 37%;
         background-color: white;
         display: flex;
         justify-content: center;
@@ -91,7 +97,7 @@
       }
 
       .letter-panel {
-        height: 30svh;
+        height: 40%;
         background-color: rgb(1, 1, 71);
         border-radius: 0 0 1rem 1rem;
         display: flex;
@@ -172,6 +178,16 @@
       @media (max-width: 600px) {
         html {
           font-size: 12px; 
+        }
+
+        .check-btn, .done-btn {
+          height: 60%;
+        }
+
+        .new-bubble {
+          height: 4rem;
+          width: 5rem;
+          font-size: 2.5rem;
         }
       }
     </style>

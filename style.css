@@ -7,9 +7,9 @@
 *::-webkit-scrollbar {
   display: none;
 }
-
+ 
 body {
-  height: 100svh;
+  height: 100vh;
   text-align: center;
   background-image: url('./images/game-background.jpg');
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 80svh;
+  height: 43rem;
 }
 
 .team {
@@ -44,7 +44,7 @@ body {
   padding: 0.5rem;
   border-bottom: 2px solid white;
   border-radius: 1rem 1rem 0 0;
-  height: 13svh;
+  height: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +68,7 @@ body {
 }
 
 .check-panel {
-  height: 7svh;
+  height: 3rem;
   background-color: rgb(240, 201, 27);
   display: flex;
   align-items: center;
@@ -77,12 +77,12 @@ body {
 }
 
 .check-btn, .done-btn {
-  height: 80%;
+  height: 90%;
   cursor: pointer;
 }
 
 .dropzone {
-  height: 27svh;
+  height: 15rem;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -90,7 +90,7 @@ body {
 }
 
 .letter-panel {
-  height: 32svh;
+  height: 20rem;
   background-color: rgb(1, 1, 71);
   border-radius: 0 0 1rem 1rem;
   display: flex;

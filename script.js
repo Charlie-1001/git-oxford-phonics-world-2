@@ -16,6 +16,8 @@ const teamName2 = document.getElementById("teamName2");
 const score1 = document.getElementById("score1");
 const score2 = document.getElementById("score2");
 const summaryTeam = document.getElementById("summaryTeam");
+const correctSound = new Audio('./sounds/correct.mp3');
+const incorrectSound = new Audio('./sounds/incorrect.mp3');
 
 // --- MULTI-TOUCH TRACKING ---
 const touchDrags = new Map();
@@ -159,7 +161,8 @@ phonicsLetters.forEach(letter => {
 
 // --- CHECK ANSWERS ---
 function correctAnswer(score, dropzone) {
-  const correctSound = new Audio('./sounds/correct.mp3');
+  correctSound.pause();
+  correctSound.currentTime = 0;
   correctSound.play();
   score.innerText = parseInt(score.innerText) + 5;
 
@@ -171,7 +174,8 @@ function correctAnswer(score, dropzone) {
 }
 
 function wrongAnswer(score, dropzone) {
-  const incorrectSound = new Audio('./sounds/incorrect.mp3');
+  incorrectSound.pause();
+  incorrectSound.currentTime = 0;
   incorrectSound.play();
   score.innerText = parseInt(score.innerText) - 2;
 

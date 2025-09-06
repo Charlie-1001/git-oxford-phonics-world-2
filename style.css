@@ -116,7 +116,9 @@ body {
 }
 
 .bubble,
-.new-bubble {
+.new-bubble,
+.spell-bubble,
+.spell-new-bubble {
   background-color: yellow;
   color: red;
   font-weight: bold;
@@ -140,6 +142,19 @@ body {
   width: 7rem;
   font-size: 4rem;
 }
+
+.spell-bubble {
+  height: 3rem;
+  width: 4rem;
+  font-size: 2rem;
+}
+
+.spell-new-bubble {
+  height: 5rem;
+  width: 6rem;
+  font-size: 3rem;
+}
+
 .summary-panel {
   display: none;
 }

@@ -18,15 +18,14 @@ const score2 = document.getElementById("score2");
 const summaryTeam = document.getElementById("summaryTeam");
 const correctSound = new Audio('./sounds/correct.mp3');
 const incorrectSound = new Audio('./sounds/incorrect.mp3');
-const bubbleType = phonicsLetters.length > 14 ? "small" : "normal";
 
 // --- MULTI-TOUCH TRACKING ---
 const touchDrags = new Map();
 
 // --- BUBBLE CREATION ---
-function createBubble(letter, teamId, type) {
+function createBubble(letter, teamId) {
   const bubble = document.createElement('div');
-  bubble.className = type === "small" ? "spell-bubble" : "bubble";
+  bubble.className = 'bubble';
   bubble.textContent = letter;
   bubble.dataset.team = teamId;
 
@@ -117,7 +116,7 @@ function onDrop(e) {
 
     if (dropzone && dropzone.closest('.team').id === bubble.dataset.team) {
       const newBubble = document.createElement('div');
-      newBubble.className = bubbleType === "small" ? 'spell-new-bubble' : 'new-bubble';
+      newBubble.className = 'new-bubble';
       newBubble.textContent = bubble.textContent;
       newBubble.dataset.team = bubble.dataset.team;
       newBubble.style.cursor = 'pointer';
@@ -154,10 +153,10 @@ function onDrop(e) {
 
 // Create the letter bubbles
 phonicsLetters.forEach(letter => {
-  const bubble1 = createBubble(letter, 'team1', bubbleType);
+  const bubble1 = createBubble(letter, 'team1');
   letterPanel1.appendChild(bubble1);
 
-  const bubble2 = createBubble(letter, 'team2', bubbleType);
+  const bubble2 = createBubble(letter, 'team2');
   letterPanel2.appendChild(bubble2);
 });
 
@@ -168,7 +167,7 @@ function correctAnswer(score, dropzone) {
   correctSound.play();
   score.innerText = parseInt(score.innerText) + 5;
 
-  dropzone.querySelectorAll('.new-bubble, .spell-new-bubble').forEach(bubble => {
+  dropzone.querySelectorAll('.new-bubble').forEach(bubble => {
     bubble.style.backgroundColor = 'rgb(131, 245, 131)';
     bubble.style.color = 'white';
     setTimeout(() => bubble.remove(), 1000);
@@ -181,7 +180,7 @@ function wrongAnswer(score, dropzone) {
   incorrectSound.play();
   score.innerText = parseInt(score.innerText) - 2;
 
-  dropzone.querySelectorAll('.new-bubble, .spell-new-bubble').forEach(bubble => {
+  dropzone.querySelectorAll('.new-bubble').forEach(bubble => {
     bubble.style.backgroundColor = 'rgb(245, 131, 131)';
     bubble.style.color = 'white';
     setTimeout(() => bubble.remove(), 1000);

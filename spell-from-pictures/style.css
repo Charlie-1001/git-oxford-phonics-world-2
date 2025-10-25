@@ -1,0 +1,209 @@
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 100vh;
+        background-color: rgb(11, 11, 66);
+        overflow: hidden;
+      }
+
+      .game-title {
+        color: yellow;
+        text-align: center;
+        font-size: 3rem;
+        margin: 0.5rem 0;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 85%;
+      }
+
+      .team {
+        width: 49%;
+        height: 100%;
+        background-color: rgb(180, 178, 178);
+        border: 5px solid rgb(228, 175, 1);
+        border-radius: 1rem;
+      }
+
+      .summary-panel {
+        height: 40%;
+        background-color: rgba(0,6,132,255);
+        color: white;
+        border-radius: 1rem 1rem 0 0;
+        border-bottom: 1px solid white;
+      }
+
+      .team-name {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .score-panel {
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5rem auto;
+      }
+
+      .score-section {
+        height: 100%;
+        width: 55%;
+      }
+
+      .score-section h3 {
+        text-align: center;
+        background-color: green;
+      }
+
+      .score-label{
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .score-value {
+        color: greenyellow;
+      }
+
+      .wrong {
+        color: red
+      }
+
+      .divider {
+        width: 80%;
+        margin: 0.5rem auto;
+      }
+
+      .lucky-box-section {
+        height: 100%;
+        width: 44%;
+        color: white;
+      }
+
+      .lucky-box-section h3 {
+        background-color: rgb(11, 161, 11);
+        text-align: center;
+      }
+
+      .lucky-box { 
+        height: 80%;
+        max-width: 100%;
+        margin: 0.5rem auto;
+        display: block;
+        cursor: pointer;
+      }
+
+      .img-section {
+        height: 39%;
+        width: 90%;
+        background-color: white;
+        border-radius: 0.5rem;
+        margin: 0.5rem auto;
+        text-align: center;
+        padding: 0.5rem;
+        box-shadow: 2px 2px 3px rgb(92, 91, 91);
+      }
+
+      .vocabulary-img {
+        height: 100%;
+        max-width: 100%;
+      }
+
+      .input-section {
+        height: 16%;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(214, 212, 212);
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 0.5rem;
+        padding: 0 2%;
+      }
+
+      .letter-box {
+        width: 82%;
+        height: 80%;
+        border: 2px solid blue;
+        border-radius: 0.5rem;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: blue;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .scrumbled-letter {
+        font-size: 2rem;
+        background-color: rgb(75, 102, 224);
+        border: 1px solid black;
+        color: yellow;
+        border-radius: 0.3rem;
+        padding: 0.2rem;
+        height: 80%;
+        width: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: grab;
+      }
+
+      .dragging {
+        opacity: 0.5;
+        background-color: rgb(233, 110, 233);
+      }
+
+      .check-btn {
+        width: 15%;
+        height: 80%;
+        font-size: 1.2rem;
+        background-color: blue;
+        color: white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 850px) {
+        html {
+          font-size: 14px;
+        }
+
+        .check-btn {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        html {
+          font-size: 12px;
+        }
+
+        .scrumbled-letter {
+          font-size: 1rem;
+          height: 60%;
+        }
+
+        .check-btn {
+          font-size: 0.6rem;
+        }
+      }

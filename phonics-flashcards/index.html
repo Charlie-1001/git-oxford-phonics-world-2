@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      display: flex;
+      height: 50px;
+      width: 100%;
+      background-color: black;
+      color: white;
+      align-items: center;
+      padding: 0 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    header h1 {
+      flex: 1;
+    }
+
+    header select, header button {
+      height: 80%;
+      cursor: pointer;
+      padding: 0.5rem;
+      margin-left: 1rem;
+      border-radius: 0.5rem;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    header select {
+      width: 20%;
+    }
+
+    header button {
+      background-color: yellow;
+    }
+
+    #container {
+      height: calc(100vh - 50px);
+      width: 100%;
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      /* grid-template-rows: repeat(2, 1fr); */
+      gap: 5px;
+      border: 2px solid blue;
+      padding: 4rem 1rem;
+    }
+
+    .img-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 1px solid grey;
+      box-shadow: 3px 3px 5px rgb(123, 122, 122);
+      overflow: hidden;
+    }
+
+    .images {
+      width: 100%;
+      height: 100%;
+    }
+
+    .meaning {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: yellow;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.664);
+      padding: 0 0.5rem;
+    }
+
+    .hide-items {
+      display: none;
+    }
+
+    .reading {
+      display: block;
+      background-color: #f0f0f0;
+      color: black;
+      font-size: 3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      height: fit-content;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Oxford Phonics World 2</h1>
+    <select>
+      <option value="unit1">Unit 1</option>
+      <option value="unit2">Unit 2</option>
+      <option value="unit3">Unit 3</option>
+      <option value="unit4">Unit 4</option>
+      <option value="unit5">Unit 5</option>
+      <option value="unit6">Unit 6</option>
+      <option value="unit7">Unit 7</option>
+      <option value="unit8">Unit 8</option>
+    </select>
+    <button id="toggleText">Hide Text</button>
+    <button id="reading">Reading</button>
+  </header>
+
+  <main id="container"></main>
+
+  <!-- The script -->
+  <script>
+    const data = [
+      {unit: "unit1", flashcards: [
+        { name: "cat", image: "images/cat.png" },
+        { name: "ant", image: "images/ant.png" },
+        { name: "yak", image: "images/yak.png" },
+        { name: "ax", image: "images/ax.png" },
+        { name: "ram", image: "images/ram.png" },
+        { name: "jam", image: "images/jam.png" },
+        { name: "yam", image: "images/yam.png" },
+        { name: "dam", image: "images/dam.png" },
+        { name: "fan", image: "images/fan.png" },
+        { name: "man", image: "images/man.png" },
+        { name: "pan", image: "images/pan.png" },
+        { name: "can", image: "images/can.png" },
+      ]}, 
+      {unit: "unit2", flashcards: [
+        { name: "dad", image: "images/dad.png" },
+        { name: "pad", image: "images/pad.png" },
+        { name: "bag", image: "images/bag.png" },
+        { name: "rag", image: "images/rag.png" },
+        { name: "cap", image: "images/cap.png" },
+        { name: "map", image: "images/map.png" },
+        { name: "nap", image: "images/nap.png" },
+        { name: "tap", image: "images/tap.png" },
+        { name: "bat", image: "images/bat.png" },
+        { name: "rat", image: "images/rat.png" },
+        { name: "hat", image: "images/hat.png" },
+        { name: "mat", image: "images/mat.png" },
+      ]},
+      {unit: "unit3", flashcards: [
+        { name: "web", image: "images/web.png" },
+        { name: "egg", image: "images/egg.png" },
+        { name: "vet", image: "images/vet.png" },
+        { name: "ten", image: "images/ten.png" },
+        { name: "jet", image: "images/jet.png" },
+        { name: "net", image: "images/net.png" },
+        { name: "wet", image: "images/wet.png" },
+        { name: "pet", image: "images/pet.png" },
+        { name: "hen", image: "images/hen.png" },
+        { name: "pen", image: "images/pen.png" },
+        { name: "red", image: "images/red.png" },
+        { name: "bed", image: "images/bed.png" },
+      ]},
+      {unit: "unit4", flashcards: [
+        { name: "hip", image: "images/hip.png" },
+        { name: "ink", image: "images/ink.png" },
+        { name: "zip", image: "images/zip.png" },
+        { name: "in", image: "images/in.png" },
+        { name: "lip", image: "images/lip.png" },
+        { name: "tip", image: "images/tip.png" },
+        { name: "sip", image: "images/sip.png" },
+        { name: "rip", image: "images/rip.png" },
+        { name: "bib", image: "images/bib.png" },
+        { name: "rib", image: "images/rib.png" },
+        { name: "kid", image: "images/kid.png" },
+        { name: "lid", image: "images/lid.png" },
+      ]},
+      {unit: "unit5", flashcards: [
+        { name: "pin", image: "images/pin.png" },
+        { name: "fin", image: "images/fin.png" },
+        { name: "bin", image: "images/bin.png" },
+        { name: "win", image: "images/win.png" },
+        { name: "fig", image: "images/fig.png" },
+        { name: "wig", image: "images/wig.png" },
+        { name: "big", image: "images/big.png" },
+        { name: "dig", image: "images/dig.png" },
+        { name: "pit", image: "images/pit.png" },
+        { name: "hit", image: "images/hit.png" },
+        { name: "six", image: "images/six.png" },
+        { name: "mix", image: "images/mix.png" },
+      ]},
+      {unit: "unit6", flashcards: [
+        { name: "fox", image: "images/fox.png" },
+        { name: "log", image: "images/log.png" },
+        { name: "ox", image: "images/ox.png" },
+        { name: "rod", image: "images/rod.png" },
+        { name: "pot", image: "images/pot.png" },
+        { name: "hot", image: "images/hot.png" },
+        { name: "cot", image: "images/cot.png" },
+        { name: "dot", image: "images/dot.png" },
+        { name: "top", image: "images/top.png" },
+        { name: "mop", image: "images/mop.png" },
+        { name: "hop", image: "images/hop.png" },
+        { name: "pop", image: "images/pop.png" },
+      ]},
+      {unit: "unit7", flashcards: [
+        { name: "sun", image: "images/sun.png" },
+        { name: "up", image: "images/up.png" },
+        { name: "jug", image: "images/jug.png" },
+        { name: "hug", image: "images/hug.png" },
+        { name: "bug", image: "images/bug.png" },
+        { name: "rug", image: "images/rug.png" },
+        { name: "mug", image: "images/mug.png" },
+        { name: "bud", image: "images/bud.png" },
+        { name: "mud", image: "images/mud.png" },
+        { name: "pup", image: "images/pup.png" },
+        { name: "cup", image: "images/cup.png" },
+      ]},
+      {unit: "unit8", flashcards: [
+        { name: "nut", image: "images/nut.png" },
+        { name: "hut", image: "images/hut.png" },
+        { name: "cut", image: "images/cut.png" },
+        { name: "cub", image: "images/cub.png" },
+        { name: "tub", image: "images/tub.png" },
+        { name: "gum", image: "images/gum.png" },
+        { name: "hum", image: "images/hum.png" },
+        { name: "bun", image: "images/bun.png" },
+        { name: "run", image: "images/run.png" },
+        { name: "fun", image: "images/fun.png" },
+      ]},
+    ];
+    
+    const container = document.getElementById("container");
+    const toggleTextBtn = document.getElementById("toggleText");
+    const readingBtn = document.getElementById("reading");
+    const unitSelect = document.querySelector("header select");
+
+    function loadImages(unit = "unit1") {
+      const selectedUnit = data.find(u => u.unit === unit);
+      selectedUnit.flashcards.forEach(item => {
+        const imgFrame = document.createElement("div");
+        const image = document.createElement("img");
+        const meaning = document.createElement("h1");
+
+        imgFrame.className = "img-frame";
+        image.src = item.image;
+        image.className = "images";
+        meaning.className = "meaning";
+        meaning.textContent = item.name;
+        imgFrame.appendChild(image);
+        imgFrame.appendChild(meaning);
+        container.appendChild(imgFrame);
+      });
+    }
+
+    loadImages();
+    
+    unitSelect.addEventListener("change", (e) => {
+      container.innerHTML = "";
+      loadImages(e.target.value);
+    })
+
+    toggleTextBtn.addEventListener("click", () => {
+        toggleTextBtn.textContent = toggleTextBtn.textContent === "Hide Text" ? "Show Text" : "Hide Text";
+        document.querySelectorAll(".meaning").forEach(meaning => {
+          meaning.classList.toggle("hide-items");
+        })
+    });
+
+    readingBtn.addEventListener("click", () => {
+      readingBtn.textContent = readingBtn.textContent === "Reading" ? "Studying" : "Reading";
+      document.querySelectorAll(".meaning").forEach(meaning => {
+        meaning.classList.toggle("reading");
+      })
+      document.querySelectorAll(".images").forEach(image => {
+        image.classList.toggle("hide-items");
+      })
+    });
+
+  </script>
+</body>
+</html>

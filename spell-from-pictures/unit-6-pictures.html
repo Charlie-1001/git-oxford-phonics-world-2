@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit-5 (Short-i-in-ig-it-ix)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <h1 class="game-title">Unit-5 (Short-i-in-ig-it-ix)</h1>
+
+    <div class="container">
+      <!-- Team 1 -->
+      <div class="team">
+        <div class="summary-panel">
+          <input type="text" class="team-name" id="team1Name" value="Team 1">
+          <div class="score-panel">
+            <div class="score-section">
+              <h3>Summary</h3>
+              <p class="score-label">Correct: <span class="score-value" id="correct1">0</span></p>
+              <p class="score-label">Incorrect: <span class="score-value wrong" id="incorrect1">0</span></p>
+              <p class="score-label">Bonus: <span class="score-value" id="bonus1">0</span></p>
+              <p class="score-label">Lucky Box: <span class="score-value" id="luckyBox1">0</span></p>
+              <hr class="divider">
+              <p class="score-label">Total Score: <span class="score-value" id="totalScore1">0</span></p>
+            </div>
+            <div class="lucky-box-section">
+              <h3>Lucky Box</h3>
+              <img class="lucky-box" id="luckyBoxImg1" src="./images/lucky-box-closed.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="img-section" id="imageSection1"></div>
+
+        <div class="input-section">
+          <div class="letter-box" id="letterBox1"></div>
+          <button class="check-btn" id="checkBtn1">Check</button>
+        </div>
+      </div>
+
+      <!-- Team 2 -->
+      <div class="team">
+        <div class="summary-panel">
+          <input type="text" class="team-name" id="team2Name" value="Team 2">
+          <div class="score-panel">
+            <div class="score-section">
+              <h3>Summary</h3>
+              <p class="score-label">Correct: <span class="score-value" id="correct2">0</span></p>
+              <p class="score-label">Incorrect: <span class="score-value wrong" id="incorrect2">0</span></p>
+              <p class="score-label">Bonus: <span class="score-value" id="bonus2">0</span></p>
+              <p class="score-label">Lucky Box: <span class="score-value" id="luckyBox2">0</span></p>
+              <hr class="divider">
+              <p class="score-label">Total Score: <span class="score-value" id="totalScore2">0</span></p>
+            </div>
+            <div class="lucky-box-section">
+              <h3>Lucky Box</h3>
+              <img class="lucky-box" id="luckyBoxImg2" src="./images/lucky-box-closed.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="img-section" id="imageSection2"></div>
+
+        <div class="input-section">
+          <div class="letter-box" id="letterBox2"></div>
+          <button class="check-btn" id="checkBtn2">Check</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The Javascript Section -->
+    <script>
+      const wordList = [
+        { word: "fox", imageUrl: "./images/fox.png" },
+        { word: "log", imageUrl: "./images/log.png" },
+        { word: "ox", imageUrl: "./images/ox.png" },
+        { word: "rod", imageUrl: "./images/rod.png" },
+        { word: "pot", imageUrl: "./images/pot.png" },
+        { word: "hot", imageUrl: "./images/hot.png" },
+        { word: "cot", imageUrl: "./images/cot.png" },
+        { word: "dot", imageUrl: "./images/dot.png" },
+        { word: "top", imageUrl: "./images/top.png" },
+        { word: "mop", imageUrl: "./images/mop.png" },
+        { word: "hop", imageUrl: "./images/hop.png" },
+        { word: "pop", imageUrl: "./images/pop.png" },
+      ];
+    </script>
+    <script src="script.js"></script>
+    
+  </body>
+</html>
